@@ -1,6 +1,6 @@
 # Leads Tracker
 
-**Lead Tracker** is a Chrome extension that helps you save and organize URLs of potential business leads with one click. 
+**Leads Tracker** is a Chrome extension that helps you save and organize URLs of potential business leads with one click. 
 
 ![chrome-ext](https://github.com/user-attachments/assets/aece3dec-683e-4985-b169-170e33d0c606)
 
