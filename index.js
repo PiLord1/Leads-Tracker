@@ -20,23 +20,18 @@ saveInputBtn.addEventListener('click', function() {
 })
 
 saveTabBtn.addEventListener('click', function() {
-    myLeads.push(window.location.href);
-    // window.location.href = '';
-    localStorage.setItem('lead', JSON.stringify(myLeads));
-    myLeads = JSON.parse(localStorage.getItem('lead'));
-    renderLeads();
-    console.log(myLeads);
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
+        myLeads.push(tabs[0].url);
+        localStorage.setItem('lead', JSON.stringify(myLeads));
+        renderLeads();
+
+    })
 })
 
 deleteAllBtn.addEventListener('dblclick', function() {
     localStorage.clear();
     renderLeads();
 })
-
-// function deleteLead() {
-//     myLeads.remove(element);
-//     renderLeads();
-// }
 
 function renderLeads() {
     if (localStorage.getItem('lead') === null) {
@@ -50,20 +45,13 @@ function renderLeads() {
     listLeads.innerHTML = '';
 
     for (i=0; i < myLeads.length; i++) {
-        // listLeads.innerHTML += `<li><a href="${myLeads[i]}" target="_blank">${myLeads[i]}</a></li>
-        // <button onclick='deleteLead()' id='delete-btn'>DELETE</button>`;
         listLeads.innerHTML += `<li><a href="${myLeads[i]}" target="_blank">${myLeads[i]}</a></li>`;
     
     
     }
     
-    
     gatheredLeads.appendChild(listLeads);
 
-}
-
-function uniqueId() {
-    return Math.random().toString(16).slice(2);
 }
 
 if (localStorage.getItem('lead') === null) {
@@ -73,7 +61,7 @@ if (localStorage.getItem('lead') === null) {
 }
 
 
-// pano malalaman yung particular element na pinindot (use ID, gamit JSON)
+
 
 
 
