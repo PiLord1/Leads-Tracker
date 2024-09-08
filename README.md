@@ -18,4 +18,4 @@ git clone https://github.com/PiLord1/Leads-Tracker.git
 ## Usage
 1. Go to any website you want.
 2. Click the extension icon and select "Save Tab" to automatically save the link onto the extension. You may also input the link manually and click "Save Input".
-3. Select "Delete All" if you want to clear the saved links.
+3. Double click "Delete All" if you want to clear the saved links.
